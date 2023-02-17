@@ -1,1 +1,2 @@
 C:\Users\Mikael\source\Repos\MetaProgramingLab\MetaProgrammingLab\x64\Debug\MetaProgrammingLab.exe
+M:\MetaProgramingLab\MetaProgrammingLab\x64\Debug\MetaProgrammingLab.exe
