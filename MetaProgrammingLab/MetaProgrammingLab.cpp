@@ -1,6 +1,8 @@
 #include <cassert>
-#define LEVEL 1
-//#define VG true
+#include <iostream>
+#include <vector>
+#define LEVEL 9
+#define VG true
 
 
 #if LEVEL>=1
@@ -31,7 +33,7 @@ void TestSimplify() {
     AssertSame(int, SimplifyType<int>::type);
     AssertSame(int, SimplifyType<const int>::type);
     AssertSame(int, SimplifyType<int*>::type);
-    AssertSame(int, SimplifyType<int*>::type);
+    AssertSame(int*, SimplifyType<int**>::type);
     AssertSame(int, SimplifyType<int&>::type);
     AssertSame(int, SimplifyType<int[]>::type);
     AssertSame(const int, SimplifyType_t<const int*>);
@@ -65,6 +67,10 @@ void TestRemoveAllConst() {
     AssertSame(int, RAC<int>::type);
     AssertSame(int, RAC<const int>::type);
     AssertSame(int*, RAC<int*>::type);
+    AssertSame(int*, RAC<int const* const>::type);//Mine
+    AssertSame(int**, RAC<int const* const* const>::type);//Mine
+
+    AssertSame(int***, RAC<int const* const* const*>::type); //Mine
     AssertSame(int***, RAC<int const* const* const* const>::type);
 }
 #endif
@@ -98,7 +104,7 @@ void TestIter() {
     const_iter cit2(cit1);
     iter it2(it1);
     //cross over
-    const_iter cit3(it1);
+    const_iter cit3(it1); //Rad 4
     //iter it3(cit1); //Not permitted!
 }
 #endif
@@ -110,10 +116,10 @@ int main() {
 #if LEVEL>=2
     TestAckermann();
 #endif
-#if LEVEL>3
+#if LEVEL>=3
     TestSimplify();
 #endif
-#if LEVEL>4
+#if LEVEL>=4
     TestBase();
 #endif
 #if LEVEL>5 && VG

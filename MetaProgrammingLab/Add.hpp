@@ -1,6 +1,8 @@
 #pragma once
 #include <type_traits>
 
+//1.1 ADDITION
+
 static int AddFun(int x, int y)
 {
 	if (x == 0)
@@ -13,6 +15,7 @@ static int AddFun(int x, int y)
 	}
 }
 
+//1.1.2 DEFINE A META-FUNCTION
 template <int x, int y>
 struct Add
 {
@@ -24,13 +27,3 @@ struct Add<0, y>
 {
 	static const int value = y;
 };
-
-//static void foo()
-//{
-//	static_assert(Add<3, 5>::value == 8);
-//
-//	int x2 = Add<3, 5>::value
-//
-//}
-
-

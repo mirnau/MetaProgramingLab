@@ -134,6 +134,7 @@
   <ItemGroup>
     <ClInclude Include="Ackermann.hpp" />
     <ClInclude Include="Citt.hpp" />
+    <ClInclude Include="ConstItProblem.hpp" />
     <ClInclude Include="RemAllConst.hpp" />
     <ClInclude Include="SFINAE.hpp" />
     <ClInclude Include="Simplify.hpp" />
