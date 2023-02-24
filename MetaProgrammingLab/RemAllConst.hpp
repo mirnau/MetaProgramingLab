@@ -14,21 +14,9 @@ struct RAC<T const>
 };
 
 template <class T>
-struct RAC<T const*>
+struct RAC<T*>
 {
-	using type = RAC<T*>::type;
+	using type = RAC<T>::type*;
 };
 
 
-template <class T>
-struct RAC<T const**>
-{
-	using type = RAC<T**>::type;
-};
-
-
-template <class T>
-struct RAC<T const***>
-{
-	using type = RAC<T***>::type;
-};

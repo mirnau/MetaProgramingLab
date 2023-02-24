@@ -1,8 +1,6 @@
 #pragma once
 #include <type_traits>
 
-
-
 //CLASS SIMPLIFY
 //Inte sann rekursion, rekursion saknas
 template <class T>
@@ -37,8 +35,6 @@ struct SimplifyType<T[]>
 
 template<class T>
 using SimplifyType_t = typename SimplifyType<T>::type;
-
-
 
 //CLASS BASETYPE
 //Rekursionen klarar alla kombinationer

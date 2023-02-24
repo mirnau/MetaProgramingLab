@@ -16,6 +16,11 @@ public:
 	Iter(const Iter& other) : _ptr(other._ptr) {}
 
 	//Copy constructor
-	template <typename T, typename = std::enable_if_t<std::is_const<CT>::value == true>>
+	template <typename T, typename = std::enable_if_t<std::is_const_v<CT>>>
 	Iter(const Iter<T, T>& other) : _ptr(other._ptr) {} //rad 3
+
+	////New way c++ 20
+	//template <class T>
+	//requires (std::is_const_v(<CT>))
+	//Iter(const Iter<T, T>& other) : _ptr(other._ptr) {} //rad 3
 };
